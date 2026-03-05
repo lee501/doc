@@ -1,10 +1,12 @@
 # doc
 
-A Go package for extracting text from Microsoft Word .doc binary files.
+A Go package for extracting text from Microsoft Word and Excel files (.doc, .docx, .xlsx).
 
 ## Features
 
 - Extract plain text from Microsoft Word .doc binary files
+- Extract plain text from Microsoft Word .docx (Office Open XML) files
+- Extract plain text from Microsoft Excel .xlsx (Office Open XML) files
 - Handle both compressed and uncompressed text formats
 - Support for multiple character encodings, including Chinese characters
 - Simple and easy-to-use API
@@ -27,22 +29,49 @@ import (
 )
 
 func main() {
-	// Open Word document
+	// Extract text from a .doc file
 	file, err := os.Open("document.doc")
 	if err != nil {
 		panic(err)
 	}
 	defer file.Close()
 
-	// Extract text from document
 	text, err := doc.ParseDoc(file)
 	if err != nil {
 		panic(err)
 	}
-
-	// Convert reader to string and print
 	fmt.Println(text)
 }
+```
+
+```go
+// Extract text from a .docx file
+file, err := os.Open("document.docx")
+if err != nil {
+	panic(err)
+}
+defer file.Close()
+
+text, err := doc.ParseDocx(file)
+if err != nil {
+	panic(err)
+}
+fmt.Println(text)
+```
+
+```go
+// Extract text from a .xlsx file
+file, err := os.Open("spreadsheet.xlsx")
+if err != nil {
+	panic(err)
+}
+defer file.Close()
+
+text, err := doc.ParseXlsx(file)
+if err != nil {
+	panic(err)
+}
+fmt.Println(text)
 ```
 
 ## Features in Detail
