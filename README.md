@@ -12,7 +12,7 @@ A Go package for extracting text from Microsoft Word .doc binary files.
 ## Installation
 
 ```bash
-go get github.com/lee501/doc
+go get github.com/bytexlee/doc
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/lee501/doc"
+	"github.com/bytexlee/doc"
 	"os"
 )
 

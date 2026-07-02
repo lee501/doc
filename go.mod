@@ -1,4 +1,4 @@
-module github.com/lee501/doc
+module github.com/bytexlee/doc
 
 go 1.24.2
 
